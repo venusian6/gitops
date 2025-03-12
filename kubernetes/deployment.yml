@@ -20,7 +20,7 @@ spec:
         image: thevenusian/solar:ba207398187368139b33a41eedf1a0ebdff256ae
         imagePullPolicy: Always
         ports:
-        - containerPort: 80
+        - containerPort: 3000
         env:
         - name: MONGO_URI
           valueFrom:
