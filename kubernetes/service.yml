@@ -8,7 +8,7 @@ spec:
   ports:
   - port: 80 #change to 80
     protocol: TCP
-    targetPort: 80 #change to 80
+    targetPort: 3000 
   selector:
     app: solar-system
   type: NodePort
