@@ -1,9 +1,9 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
+  name: solar-system
   labels:
     app: solar-system
-  name: solar-system
 spec:
   replicas: 3
   selector:
@@ -16,8 +16,24 @@ spec:
         app: solar-system
     spec:
       containers:
-      - image: thevenusian/solar:ba207398187368139b33a41eedf1a0ebdff256ae
-        name: solar-system
+      - name: solar-system
+        image: thevenusian/solar:ba207398187368139b33a41eedf1a0ebdff256ae
         imagePullPolicy: Always
-        ports: 
+        ports:
         - containerPort: 80
+        env:
+        - name: MONGO_URI
+          valueFrom:
+            secretKeyRef:
+              name: mongo-db-creds
+              key: MONGO_URI
+        - name: MONGO_USERNAME
+          valueFrom:
+            secretKeyRef:
+              name: mongo-db-creds
+              key: MONGO_USERNAME
+        - name: MONGO_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: mongo-db-creds
+              key: MONGO_PASSWORD
