@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: solar-system
-        image: thevenusian/solar:c0279aed426b787f857181a602d5c3d2691f1420
+        image: thevenusian/solar:6020758672c76cf3f8e6f00af51f0f6ad8e32d1c
         imagePullPolicy: Always
         ports:
         - containerPort: 3000
